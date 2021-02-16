@@ -19,6 +19,8 @@ public class TPS_Movement : MonoBehaviour
 
 
 
+
+    Animator PlayerAnimator;
     Rigidbody rbRef;
 
     Vector2 InputVector;
@@ -27,13 +29,24 @@ public class TPS_Movement : MonoBehaviour
 
 
 
+    // animator hashes
+    public readonly int MovementXHash = Animator.StringToHash("MovementX");
+    public readonly int MovementYHash = Animator.StringToHash("MovementY");
+    public readonly int RunHash = Animator.StringToHash("Running");
+    public readonly int JumpHash = Animator.StringToHash("Jumping");
+
+
+
+
 
     void Start()
     {
+
+        PlayerAnimator = GetComponent<Animator>();
         rbRef = GetComponent<Rigidbody>();
 
-        WalkSpeed = 5.0f;
-        RunSpeed = 10.0f;
+        WalkSpeed = 3.0f;
+        RunSpeed = 5.0f;
         JumpForce = 1.0f;
 
         isJumping = false;
@@ -49,7 +62,10 @@ public class TPS_Movement : MonoBehaviour
         if(InputVector.magnitude <= 0) return;
 
 
-        // determine walk or run 
+
+
+
+        // determine walking or running 
         if (isRunning)
         {
             CurrentSpeed = RunSpeed;
@@ -59,11 +75,16 @@ public class TPS_Movement : MonoBehaviour
             CurrentSpeed = WalkSpeed;
         }
 
+
+
+
+
+
         // determine player direction
         MoveDirection = transform.forward * InputVector.y + transform.right * InputVector.x;
 
+        // make movement vector
         Vector3 movement = MoveDirection * (CurrentSpeed * Time.deltaTime);
-
 
         // apply movement
         transform.position += movement;
@@ -72,6 +93,8 @@ public class TPS_Movement : MonoBehaviour
 
 
 
+
+    // wasd input
     public void OnMove(InputValue input)
     {
         print(input.Get());
@@ -79,8 +102,30 @@ public class TPS_Movement : MonoBehaviour
         // get input vector from input value
         InputVector = input.Get<Vector2>();
 
-        
+
+
+        // set animation for animator
+        PlayerAnimator.SetFloat(MovementXHash, InputVector.x);
+        PlayerAnimator.SetFloat(MovementYHash, InputVector.y);
 
 
     }
+
+
+
+
+
+    // sprint input
+    public void OnSprint(InputValue input)
+    {
+        if (input.Get().ToString()=="1")
+        {
+            isRunning = true;
+        }
+        else
+        {
+            isRunning = false;;
+        }
+    }
+
 }
