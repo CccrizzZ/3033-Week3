@@ -67,9 +67,6 @@ namespace Character
             if(InputVector.magnitude <= 0) return;
 
 
-
-
-
             // determine walking or running 
             if (isRunning)
             {
@@ -79,9 +76,6 @@ namespace Character
             {
                 CurrentSpeed = WalkSpeed;
             }
-
-
-
 
 
 
@@ -102,7 +96,6 @@ namespace Character
         // wasd input
         public void OnMove(InputValue input)
         {
-            print(input.Get());
 
             // get input vector from input value
             InputVector = input.Get<Vector2>();
