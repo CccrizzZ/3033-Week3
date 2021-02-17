@@ -183,7 +183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205812157}
   m_LocalRotation: {x: 0.14825824, y: 0, z: 0, w: 0.9889487}
-  m_LocalPosition: {x: 0.75, y: 3.58, z: -2.5}
+  m_LocalPosition: {x: 0.8, y: 4.08, z: -2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1880233487}
@@ -371,13 +371,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.3231034, y: -0.5841977, z: 0.27241585, w: 0.6928975}
+  m_LocalRotation: {x: 0.4078915, y: 0.2371661, z: -0.110592365, w: 0.8747263}
   m_LocalPosition: {x: 2.71, y: 6.02, z: -4.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 50, y: -80.27, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 30.34, z: 0}
 --- !u!1 &943209943
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,14 +735,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6043bde05a7fc4cba197d06915c1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damping: {x: 0.1, y: 0.1, z: 0.1}
-  ShoulderOffset: {x: 0.25, y: -0.6, z: 0}
-  VerticalArmLength: 0.5
+  Damping: {x: 0.1, y: 0.6, z: 0.2}
+  ShoulderOffset: {x: 0.3, y: -0.6, z: 0}
+  VerticalArmLength: 1
   CameraSide: 1
   CameraDistance: 2.5
   CameraCollisionFilter:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 4294967295
   IgnoreTag: 
   CameraRadius: 0.2
 --- !u!114 &1880233489
@@ -839,7 +839,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -862,7 +862,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1955481747}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.75, y: 3.58, z: -2.5}
+  m_LocalPosition: {x: 0.8, y: 4.08, z: -2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -959,6 +959,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8757810640240461022, guid: bf23c70e5ca3da940a1d440f4c739ad3, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757810640240461022, guid: bf23c70e5ca3da940a1d440f4c739ad3, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []

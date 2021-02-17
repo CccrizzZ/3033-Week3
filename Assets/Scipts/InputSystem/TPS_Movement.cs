@@ -121,10 +121,15 @@ public class TPS_Movement : MonoBehaviour
         if (input.Get().ToString()=="1")
         {
             isRunning = true;
+            PlayerAnimator.SetBool(RunHash, isRunning);
+            
         }
         else
         {
-            isRunning = false;;
+            isRunning = false;
+            PlayerAnimator.SetBool(RunHash, isRunning);
+
+
         }
     }
 
