@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using InputMonoBehaviorParent;
 
-namespace CrosshairUI
+namespace Character.UI
 {
     public class CrosshairScript : InputMonoBehavior
     {
