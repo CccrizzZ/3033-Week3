@@ -111,16 +111,10 @@ namespace Character.UI
             
             // set to member variable
             CurrentAimPosition = new Vector2(crosshairXPosition, crosshairYPosition);
-            // print(CurrentAimPosition);
 
-            print(transform.position);
-
-            
-            
+           
             // apply crosshair position x and y
             transform.position = CurrentAimPosition;
-        
-        
         
         }
 

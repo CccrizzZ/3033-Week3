@@ -16,9 +16,6 @@ namespace Character
         public float JumpForce;
         
         
-        
-        bool isJumping;
-        bool isRunning;
         float CurrentSpeed;
 
 
@@ -54,21 +51,21 @@ namespace Character
             // RunSpeed = 5.0f;
             // JumpForce = 1.0f;
 
-            isJumping = false;
-            isRunning = false;
+            PController.IsJumping = false;
+            PController.IsRunning = false;
         }
 
 
         void Update()
         {
             // if is jumping dont move
-            if(isJumping) return;
+            if(PController.IsJumping) return;
             // if no input dont move
             if(InputVector.magnitude <= 0) return;
 
 
             // determine walking or running 
-            if (isRunning)
+            if (PController.IsRunning)
             {
                 CurrentSpeed = RunSpeed;
             }
@@ -118,16 +115,13 @@ namespace Character
         {
             if (input.Get().ToString()=="1")
             {
-                isRunning = true;
-                PlayerAnimator.SetBool(RunHash, isRunning);
-                
+                PController.IsRunning = true;
+                PlayerAnimator.SetBool(RunHash, PController.IsRunning);
             }
             else
             {
-                isRunning = false;
-                PlayerAnimator.SetBool(RunHash, isRunning);
-
-
+                PController.IsRunning = false;
+                PlayerAnimator.SetBool(RunHash, PController.IsRunning);
             }
         }
 

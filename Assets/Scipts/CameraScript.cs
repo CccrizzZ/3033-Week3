@@ -1,18 +1,56 @@
-using System.Collections;
-using System.Collections.Generic;
+using InputMonoBehaviorParent;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class CameraScript : MonoBehaviour
+namespace Character
 {
-    // Start is called before the first frame update
-    void Start()
+    public class CameraScript : InputMonoBehavior
     {
-        
-    }
+        [SerializeField] private float RotationPower = 10;
+        [SerializeField] private float HorizontalDamping = 1;
+        [SerializeField] private GameObject FollowTarget;
 
-    // Update is called once per frame
-    void Update()
-    {
+        private Transform FollowTargetTransform;
+        private Vector2 PreviousMouseDelta = Vector2.zero;
+
+        private new void Awake()
+        {
+            base.Awake();
+            FollowTargetTransform = FollowTarget.transform;
+        }
+
+        private void OnLooked(InputAction.CallbackContext obj)
+        {
+            Vector2 aimValue = obj.ReadValue<Vector2>();
+
+            Quaternion addedRotation = Quaternion.AngleAxis(
+            Mathf.Lerp(PreviousMouseDelta.x, aimValue.x, 1f / HorizontalDamping) * RotationPower,
+            transform.up);
+
+            FollowTargetTransform.rotation *= addedRotation;
+
+            PreviousMouseDelta = aimValue;
+            
+            transform.rotation = Quaternion.Euler(0, FollowTargetTransform.rotation.eulerAngles.y, 0);
+            
+            FollowTargetTransform.localEulerAngles = Vector3.zero;
+        }
+
+        private new void OnEnable()
+        {
+            base.OnEnable();
+            GameInput.Player.Look.performed += OnLooked;
+
+        }
+
+        private new void OnDisable()
+        {
+            base.OnDisable();
+            GameInput.Player.Look.performed -= OnLooked;
+
+        }
+
         
     }
 }
+   
