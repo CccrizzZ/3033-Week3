@@ -156,7 +156,7 @@ namespace Character
             PController.IsJumping = input.isPressed;
             PlayerAnimator.SetBool(JumpHash, input.isPressed);
 
-            rbRef.AddForce((transform.up + MoveDirection) * JumpForce, ForceMode.Impulse);
+            // rbRef.AddForce((transform.up + MoveDirection) * JumpForce, ForceMode.Impulse);
             
         }
 

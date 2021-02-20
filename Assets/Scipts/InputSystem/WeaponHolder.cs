@@ -100,8 +100,8 @@ namespace Character
             Vector3 independentMousePosition = viewCam.ScreenToViewportPoint(PCrosshair.CurrentAimPosition);
             
             
-            PAnimator.SetFloat(AimHorizontalHash, independentMousePosition.x);
-            PAnimator.SetFloat(AimVerticalHash, independentMousePosition.y);
+            // PAnimator.SetFloat(AimHorizontalHash, independentMousePosition.x);
+            // PAnimator.SetFloat(AimVerticalHash, independentMousePosition.y);
 
 
 
